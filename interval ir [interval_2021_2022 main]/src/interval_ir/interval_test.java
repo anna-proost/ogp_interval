@@ -9,30 +9,18 @@ class interval_test {
 	// verschillende voorstellingen voor hetzelfde idee
 	// verschillende voorstellingen voor eenzelfde abstracte toestandsruimte
 	
-	class Interval {
-		int ondergrens;
-		int bovengrens;
-	}
+	// representatie encapsuleren !! niet rechtstreeks velden gebruiken MAAR opvragen
 	
-	int getLengte(Interval interval) {
-		return interval.bovengrens - interval.ondergrens;
-	}
-	
-	class Interval2 {
-		int ondergrens;
-		int lengte;				
-	}
-
 	@Test
 	void test() {
 		Interval mijnInterval = new Interval();		// velden initieel allemaal waarde 0
-		assertEquals(0, mijnInterval.ondergrens);
-		assertEquals(0, mijnInterval.bovengrens);
+		assertEquals(0, mijnInterval.getOndergrens());
+		assertEquals(0, mijnInterval.getBovengrens());
 		
-		mijnInterval.bovengrens = 2;
-		assertEquals(2, mijnInterval.bovengrens);
+		mijnInterval.setBovengrens(2);
+		assertEquals(2, mijnInterval.getBovengrens());
 		
-		assertEquals(2, getLengte(mijnInterval));
+		assertEquals(2, mijnInterval.getLengte());
 	}
 
 }
